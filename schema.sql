@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS seq_burgers_db;
+
 CREATE DATABASE seq_burgers_db;
 USE seq_burgers_db;
 
@@ -9,5 +10,7 @@ CREATE TABLE burgers (
     cheese varchar(25),
     burger_type varchar(25),
 	eaten BOOLEAN,
+    createdAt datetime,
+    updatedAt datetime,
 	PRIMARY KEY (id)
 );

@@ -1,14 +1,16 @@
-// HTML routes for sending users to different html pages (in this case
+// html-routes.js routes for sending users to different html pages (in this case
 // we only have one.)
+var db = require("../models");
 
-const path = require("path");
-
-// SALLY --- THE DATABASE DOESN"T SEEM TO BE CONNECTING. CHECK THE DATABASE NAME
+var path = require("path");
 
 // Routes
 // ==========================================================
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    res.render("index", req.body);   // render the index page
-  });
+    db.Burger.findAll({})
+    .then(function(dbBurger) {
+      res.render("index", {burgers: dbBurger});   // render the index page
+    });
+})
 };

@@ -1,4 +1,3 @@
-SELECT * FROM seq_burgers_db.burgers;
 
 INSERT INTO burgers (name, burger_type, bun, cheese, eaten, createdAt, updatedAt) VALUES
 ('Sharmilla', 'ground beef', 'white', 'cheddar', false, curdate(), curdate()),

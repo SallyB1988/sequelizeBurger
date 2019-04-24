@@ -42,8 +42,8 @@ module.exports = function(app) {
       burger_type: req.body.burger_type,
       eaten: req.body.eaten
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbBurger) {
+        res.json({id: dbBurger.insertId});
       });
   });
 
@@ -55,8 +55,11 @@ module.exports = function(app) {
         id: req.params.id
       }
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbBurger) {
+        if(dbBurger.changedRows === 0) {
+          return res.status(404).end();
+        }
+        res.status(200).end();
       });
   });
 
