@@ -1,0 +1,12 @@
+<div class=" row mx-3 my-3 p-1 border burger-card">
+  <div class="col-md-12 justify-content-center"> 
+    <h6 class="float-left">{{name}}</h6>
+    {{!-- Don't show the 'EAT' button on orders which have already been eaten --}}
+    {{#unless eaten}}
+      <button class="float-right eat-burger" data-id="{{id}}" >EAT</button>
+    {{/unless}}
+  </div>
+  <p class="ml-4 my-0">Burger Type: {{burger_type}}</p>
+  <p class="ml-4 my-0">Bun: {{bun}}</p>
+  <p class="ml-4 my-0">Cheese: {{cheese}}</p>
+</div>
