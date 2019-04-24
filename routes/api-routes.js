@@ -2,9 +2,6 @@
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 
-// Dependencies
-// =============================================================
-
 // Requiring our Burger model
 var db = require("../models");
 
@@ -12,7 +9,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the burgers
+  // get all of the burgers
   app.get("/api/burgers/", function(req, res) {
     db.Burger.findAll({})
       .then(function(dbPost) {
@@ -20,19 +17,19 @@ module.exports = function(app) {
       });
   });
 
-  // Get route for retrieving a single burger
+  // get a single burger
   app.get("/api/burgers/:id", function(req, res) {
-    db.Post.findOne({
+    db.Burger.findOne({
       where: {
         id: req.params.id
       }
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbBurger) {
+        res.json(dbBurger);
       });
   });
 
-  // POST route for creating a new burger
+  // create a new burger
   app.post("/api/burgers", function(req, res) {
     console.log(req.body);
     db.Burger.create({
@@ -47,7 +44,7 @@ module.exports = function(app) {
       });
   });
 
-  // PUT route for updating an existing burger
+  // update an existing burger
   app.put("/api/burgers/:id", function(req, res) {
     console.log(req.body);
     db.Burger.update(req.body, {
@@ -62,17 +59,5 @@ module.exports = function(app) {
         res.status(200).end();
       });
   });
-
-  // // DELETE route for deleting burgers
-  // app.delete("/api/burgers/:id", function(req, res) {
-  //   db.Burger.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   })
-  //     .then(function(dbPost) {
-  //       res.json(dbPost);
-  //     });
-  // });
 
 };

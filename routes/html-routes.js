@@ -2,8 +2,6 @@
 // we only have one.)
 var db = require("../models");
 
-var path = require("path");
-
 // Routes
 // ==========================================================
 module.exports = function(app) {
