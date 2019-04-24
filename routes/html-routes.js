@@ -3,10 +3,12 @@
 
 const path = require("path");
 
+// SALLY --- THE DATABASE DOESN"T SEEM TO BE CONNECTING. CHECK THE DATABASE NAME
+
 // Routes
 // ==========================================================
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    res.render("index", burgerObj);   // render the index page
+    res.render("index", req.body);   // render the index page
   });
 };
