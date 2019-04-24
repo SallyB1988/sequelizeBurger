@@ -6,9 +6,9 @@ if (process.env.JAWSDB_URL) {
   } else {
       connection = mysql.createConnection({
       host: 'localhost',
-      port: 3306, // SALLY -- Is this correct?
+      port: 3306, 
       user: 'root',
-      password: 'root',     // Do I have to show everyone my password?
+      password: 'root',
       database: 'burgers_db'
     });
   }
